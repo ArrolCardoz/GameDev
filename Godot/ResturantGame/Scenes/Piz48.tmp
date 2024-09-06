@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1cgafhu3ksmt"]
+
+[ext_resource type="PackedScene" uid="uid://b7nknvifwe5fv" path="res://Scenes/Item.tscn" id="1_y2123"]
+[ext_resource type="Script" path="res://Scenes/Pizza.gd" id="2_gso67"]
+[ext_resource type="Texture2D" uid="uid://bil7epouqvftt" path="res://Assets/items.png" id="2_r3y8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttxca"]
+atlas = ExtResource("2_r3y8q")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lclh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttxca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Pizza" instance=ExtResource("1_y2123")]
+script = ExtResource("2_gso67")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lclh0")
+animation = &"default"

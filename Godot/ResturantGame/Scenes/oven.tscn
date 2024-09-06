@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0q3baueqpl8g"]
+
+[ext_resource type="Texture2D" uid="uid://cenow1100cs5a" path="res://Assets/CookingAnimated.png" id="1_v0ioo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocmo4"]
+atlas = ExtResource("1_v0ioo")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj68o"]
+atlas = ExtResource("1_v0ioo")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8umf"]
+atlas = ExtResource("1_v0ioo")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_un8vg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocmo4")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj68o")
+}],
+"loop": true,
+"name": &"pizzaCooked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8umf")
+}],
+"loop": true,
+"name": &"pizzaUncooked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03yft"]
+size = Vector2(156, 156)
+
+[node name="Oven" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_un8vg")
+animation = &"Rest"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_03yft")

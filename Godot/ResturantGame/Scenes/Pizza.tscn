@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1cgafhu3ksmt"]
+
+[ext_resource type="Script" path="res://Scenes/Pizza.gd" id="2_gso67"]
+[ext_resource type="Texture2D" uid="uid://bil7epouqvftt" path="res://Assets/items.png" id="2_r3y8q"]
+[ext_resource type="Script" path="res://Scenes/interaction/interaction area/interation_area.gd" id="3_cbl5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttxca"]
+atlas = ExtResource("2_r3y8q")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lclh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttxca")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7eh7y"]
+radius = 545.074
+
+[node name="Pizza" type="Node2D"]
+script = ExtResource("2_gso67")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lclh0")
+
+[node name="IntereactionArea" type="Area2D" parent="."]
+script = ExtResource("3_cbl5b")
+action_name = "pickup"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IntereactionArea"]
+shape = SubResource("CircleShape2D_7eh7y")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg41nuf6bnq0f"]
+
+[ext_resource type="Texture2D" uid="uid://ct34kkwm124h4" path="res://Assets/cooking.png" id="1_hgvjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssc53"]
+size = Vector2(159, 157)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p7l7"]
+atlas = ExtResource("1_hgvjq")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdjue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p7l7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="counter" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ssc53")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jdjue")
